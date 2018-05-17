@@ -500,6 +500,7 @@ texdoc package-name
 命令来查看该宏包的具体说明文档
 
 常用的宏包:
+
 |package-name|说明|
 |---|---|
 |xeCJK|用于支持中文, 要用xelatex编译|
