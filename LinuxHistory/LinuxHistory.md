@@ -556,6 +556,7 @@ texdoc package-name
 \end{document}
 ```
 还有其他几个常用的环境:
+
 |env-name|作用|
 |---|---|
 |document|文章环境, 可以往上码字的地方|
@@ -1007,19 +1008,17 @@ MarkDown是一款html向的文本编辑组件
 
 ## 转义字符
 
-## 公式??
+## 公式
 
 ## 和HTML完全兼容
 
-# vscode, vim 和 Emacs
+# 编辑器推荐
 
 ## vscode
-vscode的设置
+现代大师的作品
 
 ## Vim
-Vim文件操作模式的转化
+小巧耐用的终端文本编辑器
 
 ## Emacs
-???
-
-实际操作体验
+古代大师的作品
