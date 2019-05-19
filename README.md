@@ -14,5 +14,5 @@
 
 | 文件名 | 日期 | 机构 | 题目 |
 | - | :-: | :-: | -:|
-|`LinuxHistory` | 2017.03.12| JPAs | Linux历史与入门 |
+|`CompPhysSeminar` | 2017.03.12| JPAs | 计算物理讨论班 |
 | `PostgraduateRecom` | 2018.05.20 | 吉大物院 | 保研经验交流 |  
