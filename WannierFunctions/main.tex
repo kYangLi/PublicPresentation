@@ -110,7 +110,7 @@
   \begin{subequations}
     \begin{align}
       t(\mathbf{a}_i) &= \mathrm{e}^{\mathrm{i}2\pi{}\frac{m_i}{N_i}}\\
-      t_l &= \mathrm{e}^{\mathrm{i}2\pi{}\left(\frac{m_1l_1}{N_i}+\frac{m_2l_2}{N_2}+\frac{m_3l_3}{N_3}\right)}
+      t_l &= \mathrm{e}^{\mathrm{i}2\pi{}\left(\frac{m_1l_1}{N_1}+\frac{m_2l_2}{N_2}+\frac{m_3l_3}{N_3}\right)}
     \end{align}
   \end{subequations}
 
@@ -228,7 +228,7 @@
       \begin{subequations}
         \begin{align}
           \left\langle{}w_i^{\mathbf{R}}\middle|\widehat{\mathbf{r}}\middle|{}w_j^{\mathbf{0}}\right\rangle\\
-          \left\langle{}w_i^{\mathbf{R}_m}\middle|\widehat{\mathbf{r}}^2\middle|{}w_j^{\mathbf{0}}\right\rangle
+          \left\langle{}w_i^{\mathbf{R}}\middle|\widehat{\mathbf{r}}^2\middle|{}w_j^{\mathbf{0}}\right\rangle
         \end{align}
       \end{subequations}
     \end{exampleblock}
@@ -237,13 +237,13 @@
       \small
       \begin{equation*}
         \begin{aligned}
-          \left\langle{}u_i^{\mathbf{k}}\middle|{}u_j^{\mathbf{k}+\mathbf{b}}\right\rangle &= \left\langle{}\psi_i^{\mathbf{k}}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{b}\cdot\mathbf{r}}\middle|{}\psi_j^{\mathbf{k}+\mathbf{b}}\right\rangle\\
-          &= \sum_{mn}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot(\mathbf{R}_m-\mathbf{R}_n)}\left\langle{}w_i^{\mathbf{R}_m}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{b}\cdot\mathbf{r}}\middle|{}w_j^{\mathbf{R}_n}\right\rangle\\
-          &= \sum_{\mathbf{R}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{b}\cdot\mathbf{r}}\middle|{}w_j^{\mathbf{0}}\right\rangle,\quad (\mathbf{R}=\mathbf{R}_m-\mathbf{R}_n)
+          \left\langle{}u_i^{\mathbf{k}}\middle|{}u_j^{\mathbf{k}+\mathbf{q}}\right\rangle &= \left\langle{}\psi_i^{\mathbf{k}}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{q}\cdot\mathbf{r}}\middle|{}\psi_j^{\mathbf{k}+\mathbf{q}}\right\rangle\\
+          &= \sum_{mn}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot(\mathbf{R}_m-\mathbf{R}_n)}\left\langle{}w_i^{\mathbf{R}_m}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{q}\cdot\mathbf{r}}\middle|{}w_j^{\mathbf{R}_n}\right\rangle\\
+          &= \sum_{\mathbf{R}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{q}\cdot\mathbf{r}}\middle|{}w_j^{\mathbf{0}}\right\rangle,\quad (\mathbf{R}=\mathbf{R}_m-\mathbf{R}_n)
         \end{aligned}
       \end{equation*}
 
-      where \(\mathbf{b}\) are vectors connecting mesh-point \(\mathbf{k}\) to its nearest neighbours.
+      where \(\mathbf{q}\) are vectors much less than \(\mathbf{k}\).
 
       \end{block}
 
@@ -257,17 +257,17 @@
     \begin{block}{Solution}
       \small 
       \begin{equation*}
-        \left\langle{}u_i^{\mathbf{k}}\middle|{}u_j^{\mathbf{k}+\mathbf{b}}\right\rangle = \sum_{\mathbf{R}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{b}\cdot\mathbf{r}}\middle|{}w_j^{\mathbf{0}}\right\rangle
+        \left\langle{}u_i^{\mathbf{k}}\middle|{}u_j^{\mathbf{k}+\mathbf{q}}\right\rangle = \sum_{\mathbf{R}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|\mathrm{e}^{-\mathrm{i}\mathbf{q}\cdot\mathbf{r}}\middle|{}w_j^{\mathbf{0}}\right\rangle
       \end{equation*}
       By using Taylor expansion,
       \begin{equation*}
         \begin{aligned}
-          \left|u_j^{\mathbf{k}+\mathbf{b}}\right\rangle &= \left|u_j^{\mathbf{k}}\right\rangle + \nabla_\mathbf{k}\left|u_j^{\mathbf{k}}\right\rangle\cdot\mathbf{b} + \dfrac{1}{2}\nabla^2_\mathbf{k}\left|u_j^{\mathbf{k}}\right\rangle\cdot\mathbf{b}^2 + \ldots\\
-          \mathrm{e}^{-\mathrm{i}\mathbf{b}\cdot\mathbf{r}} &= 1 - \mathrm{i}\mathbf{r}\cdot\mathbf{b} - \dfrac{1}{2}\mathbf{r}^2\mathbf{b}^2
+          \left|u_j^{\mathbf{k}+\mathbf{q}}\right\rangle &= \left|u_j^{\mathbf{k}}\right\rangle + \nabla_\mathbf{k}\left|u_j^{\mathbf{k}}\right\rangle\cdot\mathbf{q} + \dfrac{1}{2}\nabla^2_\mathbf{k}\left|u_j^{\mathbf{k}}\right\rangle\cdot\mathbf{q}^2 + \ldots\\
+          \mathrm{e}^{-\mathrm{i}\mathbf{q}\cdot\mathbf{r}} &= 1 - \mathrm{i}\mathbf{r}\cdot\mathbf{q} - \dfrac{1}{2}\mathbf{r}^2\mathbf{q}^2
         \end{aligned}
       \end{equation*}
 
-      Comparing the order of \(\mathbf{b}\), we finally get, 
+      Comparing the order of \(\mathbf{q}\), we finally get, 
       \begin{subequations}
         \begin{align}
           \left\langle{}u_i^{\mathbf{k}}\middle|\nabla_\mathbf{k}\middle|u_j^{\mathbf{k}}\right\rangle &= \sum_{\mathbf{k}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|-i\mathbf{r}\middle|{}w_j^{\mathbf{0}}\right\rangle\\
@@ -290,7 +290,7 @@
       Similarly, 
       \begin{subequations}
         \begin{align}
-          \left\langle{}u_i^{\mathbf{k}}\middle|\nabla^2_\mathbf{k}\middle|u_j^{\mathbf{k}}\right\rangle &= \sum_{\mathbf{k}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|-\mathbf{r}\middle|{}w_j^{\mathbf{0}}\right\rangle\\
+          \left\langle{}u_i^{\mathbf{k}}\middle|\nabla^2_\mathbf{k}\middle|u_j^{\mathbf{k}}\right\rangle &= \sum_{\mathbf{k}}\mathrm{e}^{-\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}w_i^{\mathbf{R}}\middle|-\mathbf{r}^2\middle|{}w_j^{\mathbf{0}}\right\rangle\\
           \left\langle{}w_i^{\mathbf{R}}\middle|\mathbf{r}^2\middle|{}w_j^{\mathbf{0}}\right\rangle &= -\dfrac{V}{(2\pi)^3}\int_{BZ}d^3k\; \mathrm{e}^{\mathrm{i}\mathbf{k}\cdot\mathbf{R}}\left\langle{}u_i^{\mathbf{k}}\middle|\nabla^2_\mathbf{k}\middle|u_j^{\mathbf{k}}\right\rangle
         \end{align}
       \end{subequations}
@@ -324,7 +324,7 @@
     \end{aligned}
   \end{equation*}
 
-  It is clear that the basis \(\left\{\left|w^{\mathbf{R}_m}\right\rangle\right\}\) and \(\left\{\left|\tilde{w}^{\mathbf{R}_m}\right\rangle\right\}\) are different.
+  It is clear that the basis \(\left\{\left|w^{\mathbf{R}_m}\right\rangle\right\}\) and \(\left\{\left|\tilde{w}^{\mathbf{R}_m}\right\rangle\right\}\) can be different.
 
     \textcolor{gray}{The basis above is ordered in band index and fixed in \(\mathbf{R_m}\) (\(\mathbf{k}\) in bloch wave) index.}
   \end{frame}
@@ -367,7 +367,7 @@
     \begin{block}{Why Localized Basis?}
       \begin{itemize}
         \item Decrease the calculation complexity. 
-        \item Most physical processes are only related to local propertise.
+        \item Many physical processes are only related to local properties.
       \end{itemize}
     \end{block}
 
@@ -829,7 +829,7 @@
          _______________________________________
         / Next time you start a wannier fitting \
         | project, remember to name the project |
-        \ folder as Lucky.                      /
+        \ folder as ``Lucky''.                      /
          ---------------------------------------
                 \   ^__^
                  \  (oo)\_______
