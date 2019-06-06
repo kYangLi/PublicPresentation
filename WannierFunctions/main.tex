@@ -67,12 +67,12 @@
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-  \section{Bolch Theorem}
+  \section{Bloch Theorem}
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
-    \frametitle{Defination of \(\widehat{T}_l\)}
-    For crystal system, the Hamiltonlian is commutes with the translation operators \(\widehat{T}_l\).
+    \frametitle{Definition of \(\widehat{T}_l\)}
+    For crystal system, the Hamiltonian commutes with the translation operators \(\widehat{T}_l\).
     \begin{equation}
       \left[\widehat{T_l},\widehat{H}\right] = 0
     \end{equation}
@@ -88,7 +88,7 @@
       \end{displaymath}
     \end{block}
 
-    The eigenvalue of \(\widehat{T}_l\) can be writen as: 
+    The eigenvalue of \(\widehat{T}_l\) can be written as: 
     \begin{equation}
       t_l = \left(t_{\mathbf{a}_1}\right)^{l_1}\left(t_{\mathbf{a}_2}\right)^{l_2}\left(t_{\mathbf{a}_3}\right)^{l_3}
     \end{equation}  
@@ -100,10 +100,10 @@
   \begin{frame}
   \frametitle{Eigenvalue of \(\widehat{T}_l\)}
   
-  Let \(\widehat{T}(\mathbf{a}_i) |\psi(\mathbf{r})\rangle = |\psi(\mathbf{r}+l_i\mathbf{a}_i)\rangle\). The translation operator \(\widehat{T}(\mathbf{a}_i)\) generate a cyclic group \(C_{N_i}\) in the real space\textcolor{gray}{, where \(N_i\) is the cell quantity in \(\mathbf{a}_i\) direction among one period of total wave functions}.
+  Let \(\widehat{T}(\mathbf{a}_i) |\psi(\mathbf{r})\rangle = |\psi(\mathbf{r}+l_i\mathbf{a}_i)\rangle\). The translation operator \(\widehat{T}(\mathbf{a}_i)\) generates a cyclic group \(C_{N_i}\) in the real space\textcolor{gray}{, where \(N_i\) is the cell quantity in \(\mathbf{a}_i\) direction among one period of total wave functions}.
 
   \begin{block}{Noting}
-    Since the \(C_{N_i}\) is also a finite ablian group, accroding to \emph{Schur's Lemma I}, all of its \textcolor{purple}{inreducable unitary representation} is \textcolor{purple}{one dimensional}, which means, \(t(\mathbf{a}_i) = \mathrm{e}^{\mathrm{i}2\pi{}y_i}\)
+    Since the \(C_{N_i}\) is also a finite ablian group, according to \emph{Schur's Lemma I}, all of its \textcolor{purple}{irreducible unitary representation} is \textcolor{purple}{one dimensional}, which means, \(t(\mathbf{a}_i) = \mathrm{e}^{\mathrm{i}2\pi{}y_i}\)
   \end{block}
 
   Using the periodic conditions: \(t(\mathbf{a}_i)^{N_i}=1\), one can easily conclude that, 
@@ -125,19 +125,19 @@
   
     If we set \(\mathbf{k} = \frac{m_1}{N_1}\mathbf{b}_1+\frac{m_2}{N_2}\mathbf{b}_2+\frac{m_3}{N_3}\mathbf{b}_3\), and \(\mathbf{a}_i\cdot\mathbf{b}_j = 2\pi\delta_{ij}\)
 
-    Then the expression of \(t_l\) can be rewriten as:
+    Then the expression of \(t_l\) can be rewritten as:
     \begin{equation}
       t_l = \mathrm{e}^{\mathrm{i}\mathbf{k}\cdot\mathbf{R}_l}
     \end{equation}
 
-    The operators set: \(\{\widehat{H}, \widehat{T}_1, \widehat{T}_2,...,\widehat{T}_l,...\}\) consist the CSCO of the crystal system, which means the eigenstate of \(\widehat{H}\) can also be the eigenstate of \(\widehat{T}_l\).
+    The operators set: \(\{\widehat{H}, \widehat{T}_1, \widehat{T}_2,...,\widehat{T}_l,...\}\) constitute the CSCO of the crystal system, which means the eigenstate of \(\widehat{H}\) can also be the eigenstate of \(\widehat{T}_l\).
     \begin{equation}
       \label{eq::periodic-relation}
       \widehat{T}_l\left|\psi_n^{\mathbf{k}}(\mathbf{r})\right\rangle = \left|\psi_n^{\mathbf{k}}(\mathbf{r}+\mathbf{R}_l)\right\rangle = \mathrm{e}^{\mathrm{i}\mathbf{k}\cdot\mathbf{R}_l}\left|\psi_n^{\mathbf{k}}(\mathbf{r})\right\rangle
     \end{equation}
 
     \begin{block}{Bloch Theorem (in rough language)}
-      Let \(\left|\psi_n^{\mathbf{k}}(\mathbf{r})\right\rangle = \mathrm{e}^{\mathrm{i}\mathbf{k}\cdot\mathbf{r}}\left|u_n^{\mathbf{k}}(\mathbf{r})\right\rangle\), and set \(\left|u_n^{\mathbf{k}}(\mathbf{r})\right\rangle = \left|u_n^{\mathbf{k}}(\mathbf{r}+\mathbf{R}_l)\right\rangle\). Then the expression \eqref{eq::periodic-relation} will be satisfied automatically. (We found a formal solution for the Hamiltonlian under a periodic system.)    
+      Let \(\left|\psi_n^{\mathbf{k}}(\mathbf{r})\right\rangle = \mathrm{e}^{\mathrm{i}\mathbf{k}\cdot\mathbf{r}}\left|u_n^{\mathbf{k}}(\mathbf{r})\right\rangle\), and set \(\left|u_n^{\mathbf{k}}(\mathbf{r})\right\rangle = \left|u_n^{\mathbf{k}}(\mathbf{r}+\mathbf{R}_l)\right\rangle\). Then the expression \eqref{eq::periodic-relation} will be satisfied automatically. (We found a formal solution for the Hamiltonian under a periodic system.)    
     \end{block}
 
     \end{frame}
@@ -149,11 +149,11 @@
 
     \begin{block}{Bloch Theorem (more specifically)}
       \small
-      If the Hamiltonlian of the system \(\widehat{H} = \widehat{T} + \widehat{V}(\mathbf{r})\) satisfies, 
+      If the Hamiltonian of the system \(\widehat{H} = \widehat{T} + \widehat{V}(\mathbf{r})\) satisfies, 
       \begin{equation*}
         V(\mathbf{r}) = V(\mathbf{r}+\mathbf{R}_l)
       \end{equation*}
-      Then the wave functions of such a system can be writen as,
+      Then the wave functions of such a system can be written as,
       \begin{equation*}
         \left|\psi_n^{\mathbf{k}}(\mathbf{r})\right\rangle = \mathrm{e}^{\mathrm{i}\mathbf{k}\cdot\mathbf{r}}\left|u_n^{\mathbf{k}}(\mathbf{r})\right\rangle
       \end{equation*}
@@ -163,7 +163,7 @@
 
     \begin{block}{The Key Property}
       \small
-      Adding a arbitary phase \(\phi_n(\mathbf{k})\) to the bloch wave, \(\psi_n^{\mathbf{k}(\mathbf{r})} \to \tilde\psi_n^{\mathbf{k}(\mathbf{r})} = \psi_n^{\mathbf{k}(\mathbf{r})}\mathrm{e}^{\mathrm{i}\phi_n(\mathbf{k})}\),  will not break the derivation above. Typically, \(\psi_n^{\mathbf{k}(\mathbf{r})} \to \tilde\psi_n^{\mathbf{k}(\mathbf{r})}\) is called a \textcolor{purple}{``gauge transformation''}. (This is the very important property we must understand before the Wannier functions' discussion.)
+      Adding a arbitrary phase \(\phi_n(\mathbf{k})\) to the bloch wave, \(\psi_n^{\mathbf{k}(\mathbf{r})} \to \tilde\psi_n^{\mathbf{k}(\mathbf{r})} = \psi_n^{\mathbf{k}(\mathbf{r})}\mathrm{e}^{\mathrm{i}\phi_n(\mathbf{k})}\),  will not break the derivation above. Typically, \(\psi_n^{\mathbf{k}(\mathbf{r})} \to \tilde\psi_n^{\mathbf{k}(\mathbf{r})}\) is called a \textcolor{purple}{``gauge transformation''}. (This is the very important property we must understand before the Wannier functions' discussion.)
     \end{block}
 
     \end{frame}
@@ -173,7 +173,7 @@
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
-    \frametitle{Defination}
+    \frametitle{Definition}
     \begin{block}{Wannier Functions}
       Wannier functions are \textcolor{purple}{Fourier transforms} of the Bloch eigenstate. For one band \(i\) the function associated with the cell labeled by lattice point \(\mathbf{R}_m\) is,
       \begin{equation}
@@ -313,7 +313,7 @@
   \frametitle{``Problem'' of Wannier Functions}
 
   \begin{block}{Noting}
-    The most serious drawback of the Wannier representation is that the function are not uniquely defined. 
+    The most serious drawback of the Wannier representation is that the functions are not uniquely defined. 
   \end{block}
 
   \begin{equation*}
@@ -335,7 +335,7 @@
     \frametitle{``Problem'' of Wannier Functions}
   
     \begin{block}{Noting}
-      Although, \(\left\{\left|w^{\mathbf{R}_m}\right\rangle\right\}\) and \(\left\{\left|\tilde{w}^{\mathbf{R}_m}\right\rangle\right\}\) are two different basis, they actually describe the same subspace. Since the orthogonality of Wannier function \textcolor{purple}{do not} depend on the arbitary phase \(\phi_i(\mathbf{k})\), those two different basis are, in fact, related via a unitary matrix.
+      Although, \(\left\{\left|w^{\mathbf{R}_m}\right\rangle\right\}\) and \(\left\{\left|\tilde{w}^{\mathbf{R}_m}\right\rangle\right\}\) are two different basis, they actually describe the same subspace. Since the orthogonality of Wannier function \textcolor{purple}{do not} depend on the arbitrary phase \(\phi_i(\mathbf{k})\), those two different basis are, in fact, related via a unitary matrix.
     \end{block}
 
     \begin{equation}
@@ -362,7 +362,7 @@
   \begin{frame}
     \frametitle{``Maximally Localized'' Wannier Function}
 
-    ``Maximally Localized'' Wannier Function (MLWF) is one simple solution for constructing Wannier functions from its arbitary phase problem.
+    ``Maximally Localized'' Wannier Function (MLWF) is one simple solution for constructing Wannier functions from its arbitrary phase problem.
     
     \begin{block}{Why Localized Basis?}
       \begin{itemize}
@@ -372,7 +372,7 @@
     \end{block}
 
     \begin{block}{Easy to Localized?}
-      The process that localized the wannier functions is actually not that easy as you may think. Latter, we will introduct you the maximally localized method that adapted by \emph{Wannier90}\footnote{\tiny\emph{An updated version of \emph{Wannier90}: A tool for obtaining maximally-localised Wannier functions, AA Mostofi, JR Yates, G Pizzi, YS Lee, I Souza, D Vanderbilt, N Marzari, Comput. Phys. Commun. 185, 2309 (2014) }}, a well known wannier functions fitting package.
+      The process that localized the wannier functions is actually not that easy as you may think. Later, we will introduce you the maximally localized method that adapted by \emph{Wannier90}\footnote{\tiny\emph{An updated version of \emph{Wannier90}: A tool for obtaining maximally-localized Wannier functions, AA Mostofi, JR Yates, G Pizzi, YS Lee, I Souza, D Vanderbilt, N Marzari, Comput. Phys. Commun. 185, 2309 (2014) }}, a well-known wannier functions fitting package.
     \end{block}
 
   \end{frame}
@@ -439,7 +439,7 @@
         \end{align}
       \end{subequations}
 
-      Use projection operators, the \(\Omega_I\) can be rewriten as:
+      Use projection operators, the \(\Omega_I\) can be rewritten as:
       \begin{equation}
         \Omega_I = \sum_{i=1}^{N_{bands}}\sum_{\alpha=1}^3\left\langle{}w_i^{\mathbf{0}}\middle|\widehat{\mathbf{r}}_\alpha\widehat{Q}\;\widehat{\mathbf{r}}_\alpha\middle|{}w_i^\mathbf{0}\right\rangle
       \end{equation} 
@@ -486,7 +486,7 @@
         \end{aligned}
       \end{equation*} 
 
-      \textcolor{gray}{The \(c\) of \(Tr_c\) here indecated that only calculate the trace inside one unit cell.}
+      \textcolor{gray}{The \(c\) of \(Tr_c\) here indicated that only calculate the trace inside one unit cell.}
 
       Remember that, the gauge transformation is actually a unitary one. Under that, the trace of any operator (or their product) is invariant. 
     \end{block}
@@ -578,7 +578,7 @@
       \langle\widehat{\mathbf{r}}\rangle_j = \dfrac{\mathrm{i}}{N_\mathbf{k}}\sum_{\mathbf{k},\mathbf{b}}w_b\mathbf{b}\left[\left\langle{}u_j^{\mathbf{k}}\middle|u_j^{\mathbf{k}+\mathbf{b}}\right\rangle-1\right]
     \end{equation*}
 
-    If we define \(\left\langle{}u_i^{\mathbf{k}}\middle|u_j^{\mathbf{k}+\mathbf{b}}\right\rangle = M_{ij}(\mathbf{k}, \mathbf{b})\), the expression \eqref{eq::rmeanink} can be rewriten as:
+    If we define \(\left\langle{}u_i^{\mathbf{k}}\middle|u_j^{\mathbf{k}+\mathbf{b}}\right\rangle = M_{ij}(\mathbf{k}, \mathbf{b})\), the expression \eqref{eq::rmeanink} can be rewritten as:
      
     \begin{equation}
         \langle\widehat{\mathbf{r}}\rangle_j = -\dfrac{1}{N_\mathbf{k}}\sum_{\mathbf{k},\mathbf{b}}w_b\mathbf{b}\;\mathrm{Im}[lnM_{jj}(\mathbf{k}, \mathbf{b})]
@@ -606,7 +606,7 @@
         \langle\widehat{\mathbf{r}}\rangle_j = -\dfrac{1}{N_\mathbf{k}}\sum_{\mathbf{k},\mathbf{b}}w_b\mathbf{b}\;\mathrm{Im}[lnM_{jj}(\mathbf{k}, \mathbf{b})]
     \end{equation*}
     \begin{block}{Noting}
-      The \(\langle\widehat{\mathbf{r}}\rangle_j\) here is called wannier center for \(j^{th}\) Wannier function. 
+      The \(\langle\widehat{\mathbf{r}}\rangle_j\) here is called wannier center for \(j^{th}\) Wannier functions. 
     \end{block}
 
     Similarly, 
@@ -644,15 +644,15 @@
     \small
     The above description is sufficient to obtain MLWF for an isolated set of bands\textcolor{gray}{, which means, the index ``\(i\)'' of \(\left|u_i^{\mathbf{k}}\right\rangle\) and \(\left|w_i^{\mathbf{R}}\right\rangle\) are both represent the band order}.
 
-    \textcolor{purple}{But in some of the case, \textcolor{gray}{such as in the matallic system, } one can hardly divide the bands indivitully. (``The Case of Entangled Bands'')}
+    \textcolor{purple}{But in some of the case, \textcolor{gray}{such as in the metallic system, } one can hardly divide the bands individually. (``The Case of Entangled Bands'')}
     
-    In that case, the ``disentanglement'' technique need to be applied. 
+    In that case, the ``disentanglement'' technique needs to be applied. 
 
     \begin{block}{Methods}
       \small
       \begin{itemize}
         \item An energy window (the ``outer window'') is defined by the user such that at each k-point there are \(N_{win}^{(\mathbf{k})} (\geqslant N)\) states within the window. 
-        \item An orthonormal set of N Bloch states is obtained at each k-point, definding an N-dimensional subspace \(S_{\mathbf{k}}\).
+        \item An orthonormal set of N Bloch states is obtained at each k-point, defining an N-dimensional subspace \(S_{\mathbf{k}}\).
         \begin{equation}
           \left|u_i^{\mathbf{k}}\right\rangle = \sum_{j\in{N_{win}^{(\mathbf{k})}}}\mathbf{U}_{ji}^{dis(\mathbf{k})}\left|u_j^{(origin)\mathbf{k}}\right\rangle
         \end{equation}
@@ -677,7 +677,7 @@
         \Omega_I = \dfrac{1}{N_\mathbf{k}}\sum_{\mathbf{k},\mathbf{b}}w_b{}\mathrm{Tr}\left[\widehat{P}_{\mathbf{k}}\widehat{Q}_{\mathbf{k}+\mathbf{b}} \right]
       \end{equation*}
       
-      The answer is quite strightforward. Since the \(\Omega_I\) is a trace about the subspace. Only change the basis via a unitary transformation will not change such trace. But if we change the subspace itself, then, all most certainly, \(\Omega_I\) will be changed.
+      The answer is quite straightforward. Since the \(\Omega_I\) is a trace about the subspace. Only change the basis via a unitary transformation will not change such trace. But if we change the subspace itself, then, all most certainly, \(\Omega_I\) will be changed.
 
       This analysis also inspire that, {\color{purple} we can actually regard the \(\Omega_I\) as a function of subspace \(S_\mathbf{k}\).}
       \begin{equation*}
@@ -700,13 +700,12 @@
         \Omega_I = \dfrac{1}{N_\mathbf{k}}\sum_{\mathbf{k},\mathbf{b}}w_b{}\mathrm{Tr}\left[\widehat{P}_{\mathbf{k}}\widehat{Q}_{\mathbf{k}+\mathbf{b}} \right]
       \end{equation*}
 
-      It can be seen very clearly that, \(\Omega_I\) is a measure of the degree of mismatch between the subspace \(S_{\mathbf{k}}\) and \(S_{\mathbf{k}+\mathbf{b}}\). {\color{purple}Minimising \(\Omega_I\) corresponds to choosing self-consistently at every \(\mathbf{k}\) the subspace that has maximum overlap as \(\mathbf{k}\) is varied.} That is, \(\Omega_I\) is small
-      insofar as \(S_\mathbf{k}\) is nearly independent of k.
+      It can be seen very clearly that, \(\Omega_I\) is a measure of the degree of mismatch between the subspace \(S_{\mathbf{k}}\) and \(S_{\mathbf{k}+\mathbf{b}}\). {\color{purple}Minimising \(\Omega_I\) corresponds to choosing self-consistently at every \(\mathbf{k}\) the subspace that has maximum overlap as \(\mathbf{k}\) is varied.} That is, \(\Omega_I\) is small insofar as \(S_\mathbf{k}\) is nearly independent of k.
     \end{block}
 
     \begin{alertblock}{Not Clear Enough}
       \small
-      The explanation above is still not deep enough, for the clearly understanding of it is really a long story, and needs lots of mathematics background. But it is still worth to noting that, the optimizing of \(\Omega_I\) is actually related to the smooth of Barry Phase.\footnote{\tiny\emph{Maximally-localized generalized Wannier functions for composite energy bands, N Marzari, D Vanderbilt, \url{https://arxiv.org/abs/cond-mat/9707145}}}
+      The explanation above is still not deep enough, for the clear understanding of it is really a long story, and needs lots of mathematics background. But it is still worth noting that, the optimizing of \(\Omega_I\) is actually related to the smooth of Barry Phase.\footnote{\tiny\emph{Maximally-localized generalized Wannier functions for composite energy bands, N Marzari, D Vanderbilt, \url{https://arxiv.org/abs/cond-mat/9707145}}}
     \end{alertblock}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -730,7 +729,7 @@
     \small
     \begin{block}{Methods Conclusion}
       \begin{itemize}
-        \item  By minimising \(\Omega\), the Wannier function can be localized tightly.
+        \item  By minimizing \(\Omega\), the Wannier function can be localized tightly.
         \item \textcolor{purple}{During the minimization, \emph{Wannier90} will first try to use \(\mathbf{U}^{dis(\mathbf{k})}\) generate the best subspace set for the system, which is corresponding to minimize \(\Omega_I\). }
         \item The format of \(\mathbf{U}^{dis(\mathbf{k})}\) is decided by the ``Outer \& Inner Window''.
         \item  \textcolor{purple}{Once the best subspace set is selected, a unitary matrix \(\mathbf{U}^{\mathbf{k}}\) inside each subspace will be used to minimize the \(\widetilde{\Omega}\).}
@@ -739,7 +738,7 @@
       \end{itemize}
     \end{block}
 
-    \begin{block}{Hamiltonlian For MLWF}
+    \begin{block}{Hamiltonian For MLWF}
       \begin{equation}
         \widehat{H}^{(W)}(\mathbf{k}) = \mathbf{U^{(\mathbf{k})}}^\dagger\mathbf{U^{dis(\mathbf{k})}}^\dagger\widehat{H}(\mathbf{k})\mathbf{U^{dis(\mathbf{k})}}\mathbf{U^{(\mathbf{k})}}
       \end{equation}
@@ -761,7 +760,7 @@
     \end{alertblock}
 
     \begin{block}{Answer1}<3->
-      Yes, of course! Actually, you can directlly minimize \(\Omega\) overall.\footnote{\tiny\emph{Partly Occupied Wannier Functions, K S Thygesen, L B Hansen, and K W Jacobsen, Phys. Rev. Lett., 94, 026405}}
+      Yes, of course! Actually, you can directly minimize \(\Omega\) overall.\footnote{\tiny\emph{Partly Occupied Wannier Functions, K S Thygesen, L B Hansen, and K W Jacobsen, Phys. Rev. Lett., 94, 026405}}
     \end{block}
 
     \begin{block}{Answer2}<4->
@@ -823,19 +822,20 @@
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}[fragile]
-    \frametitle{Truth for WF Fitting}
-    \begin{block}{As The Cow Say:}
+    \frametitle{A Useful Adv. for WF Fitting}
+    \begin{block}{As The Cow Says:}
       \begin{verbatim}
 
-        ________________________________________
-       / The truth is: wannier bands fitting is \
-       \ a metaphysical problem.                /
-        ----------------------------------------
-               \   ^__^
-                \  (oo)\_______
-                   (__)\       )\/\
-                       ||----w |
-                       ||     ||
+         _______________________________________
+        / Next time you start a wannier fitting \
+        | project, remember to name the project |
+        \ folder as Lucky.                      /
+         ---------------------------------------
+                \   ^__^
+                 \  (oo)\_______
+                    (__)\       )\/\
+                        ||----w |
+                        ||     ||
      \end{verbatim}
     \end{block}
   \end{frame}
@@ -850,10 +850,10 @@
       \begin{itemize}
         \item \textcolor{purple}{Wannier functions are Fourier transforms of the Bloch eigenstate.}
         \item Wannier functions are not uniquely defined.
-        \item \textcolor{purple}{``Maximally Localized'' Wannier Function (MLWF) is one simple solution for constructing a well performed Wannier functions.}
-        \item The process of obtain MLWF can be divided into two steps: optimize subspace, after which, optimize inside each fixed subspace.
+        \item \textcolor{purple}{``Maximally Localized'' Wannier Function (MLWF) is one simple solution for constructing a well-performed Wannier functions.}
+        \item The process of obtaining MLWF can be divided into two steps: optimize subspace, after which, optimize inside each fixed subspace.
         \item \textcolor{purple}{\emph{Wannier90} is a widely used Wannier fitting package.}
-        \item Wannier fitting need a lot of experiment and, sometimes, is kind of tricky. 
+        \item Wannier fitting needs a lot of experiment and, sometimes, is kind of tricky. 
       \end{itemize}
     \end{block}
 
@@ -865,7 +865,7 @@
     \frametitle{Open Source Declaration}
     \large
     \begin{block}{Declaration}
-      This slides is completely open-source, and protected by \textcolor{purple}{GPL3.0}. You can share or modify it based on any noncommercial purpose.\\[5pt]
+      This slides is completely open-source and protected by \textcolor{purple}{GPL3.0}. You can share or modify it based on any non-commercial purpose.\\[5pt]
 
       The source code and references are available on related \textbf{GitHub} repository:
       
