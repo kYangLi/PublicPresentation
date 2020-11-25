@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository is created to record and share the public presentation or course delivered by YangLi.
+Record and share the public presentation or course.
 
 ## Q&A
 
@@ -13,7 +13,6 @@ Any question, please start an issue or send an email to <lyang.1915@gmail.com>.
 | Folder | Date | Instatution | Title |
 | - | :-: | :-: | -:|
 | `LinuxHistory` | 2017.03.12| JPAs | Linux历史与入门 |
-| `PostgraduateRecom` | 2018.05.20 | Jilin Univ. | 保研经验交流 |
 | `WannierFunction` | 2019.06.05| Tsinghua Univ.| Wannier Functions |
 |`MagneticSeminar`|2020.3.1| Tsinghua Univ. | Notes for  Magnetic Seminar|
-|`Intro.to.MEM`|2020.5.3| Tsinghua Univ. | Introduction to Magnetic Exchange Mechanisms |
+|`Intro2MEM`|2020.5.3| Tsinghua Univ. | Introduction to Magnetic Exchange Mechanisms |
