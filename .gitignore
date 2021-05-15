@@ -244,3 +244,7 @@ TSWLatexianTemp*
 *.spl
 
 .DS_Store
+
+# source file
+*-unsrc/
+.vscode
