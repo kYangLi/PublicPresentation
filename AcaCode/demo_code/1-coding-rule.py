@@ -25,6 +25,8 @@ def input_user_info():
   """Let the user (re)input their info."""
   pass #TODO
 
+kk = 1
+h = 0
 #%%
 import sys
 import math
