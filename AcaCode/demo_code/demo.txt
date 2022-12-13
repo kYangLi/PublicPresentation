@@ -1,7 +1,0 @@
-Name   Age   Score
-AA-     10    4.2
-BFR-    40    5.4
-CFD-    30    2.1
-DFR-    40    4.3
-SXD-    70    5.3
-ERT-    100   10.0

@@ -2,7 +2,7 @@
 
 ## Description
 
-Record and share the public presentation or course.
+Project for sharing the public presentation or course made by me.
 
 ## Q&A
 
@@ -12,9 +12,12 @@ Any question, please start an issue or send an email to <lyang.1915@gmail.com>.
 
 | Folder | Date | Instatution | Title |
 | - | :-: | :-: | -:|
-| `LinuxHistory` | 2017.03.12| JPAs | Linux历史与入门 |
-| `WannierFunction` | 2019.06.05| Tsinghua Univ.| Wannier Functions |
-|`MagneticSeminar`|2020.3.1| Tsinghua Univ. | Notes for  Magnetic Seminar|
-|`Intro2MEM`|2020.5.3| Tsinghua Univ. | Introduction to Magnetic Exchange Mechanisms |
-|`AcaCode`|2021.5.15| Tsinghua Univ. | How to Write a Data Processing Code |
-|`OrbitMag`|2021.7.10| Tsinghua Univ. | Theory of Orbital Magnetization in Solids |
+| `CompPhysSeminar` | 2017.03.12 | JPAs    | 计算物理讨论班材料 |
+| `WannierFunction` | 2019.06.05 | CMT.THU | Brife introduction for Wannier functions |
+| `PhononIntro`     | 2020.01.11 | CMT.THU | Brife introduction for Phonon spectrum in solid |
+| `MagneticSeminar` | 2020.03.01 | CMT.THU | Notes for Magnetic Seminar |
+| `MagnetIntro`     | 2020.05.03 | CMT.THU | Introduction to Magnetic Exchange Mechanisms |
+| `HowtoCode`       | 2021.05.15 | CMT.THU | How to Write a Data Processing Code |
+| `OrbitMag`        | 2021.07.10 | CMT.THU | Theory of Orbital Magnetization in Solids |
+| `DMI`             | 2022.08.26 | CMT.THU | DM interaction in magnetic spin-orbit coupling system |
+| `DFT+U`           | 2022.12.02 | CMT.THU | Brife introduction for DFT+$U$ method in ab initial calculation |

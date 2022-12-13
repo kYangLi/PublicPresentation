@@ -1,0 +1,477 @@
+% Author: Yang Li
+% Date: 2022.08.23
+% copyleft yangli@phys.tsinghua.edu.cn
+
+\documentclass[a4paper, 12pt]{article}
+%===================== Common Set ======================
+\usepackage{xeCJK}
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=gray,      
+	urlcolor=blue,
+	citecolor=blue,
+  }
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+%===================== Table Env. ======================
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+%=============== Lstlisting Code Supp. =================
+\usepackage{listings}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\newcommand{\purple}{\textcolor{purple}}
+\newcommand{\gray}{\textcolor{gray}}
+%========================================================
+
+\title{\textbf{补充材料: Dzyaloshinskii-Moriya (DM) 相互作用推导}}
+\author{Yang Li\\ \href{mailto:lyang.1915@foxmail.com}{lyang.1915@foxmail.com}}
+
+\begin{document}
+\maketitle
+\section{Downfolding二阶微扰}
+TBA.
+
+\section{化简计算二阶微扰项}
+展开并计算二阶微扰项是一项繁琐但直接的工作. 下面, 我们将具体展示该工作是如何进行的. 同时, 该文档还旨在向您展示如何正确地进行复杂公式推导, 因此行文描述可能略显冗长, 还请耐心评读. 
+
+\subsection{基本目标}
+我们具体的目标如下: 计算\emph{Downfolding}方法给出的二阶微扰哈密顿量,
+\begin{equation}
+  \label{eq:HM}
+  \widehat{H}_{\text{M}} = - \frac{1}{U} \widehat{T}^\dagger\widehat{T}
+\end{equation}
+
+其中, 
+\begin{equation}
+  \label{eq:T}
+  \begin{aligned}
+    \widehat{T} &= b_{n'n}(\bm{R}'-\bm{R})\left[\widehat{\alpha}_{n'\uparrow}^{\dagger}(\bm{R}')\widehat{\alpha}_{n\uparrow}(\bm{R}) + \widehat{\alpha}_{n'\downarrow}^{\dagger}(\bm{R}')\widehat{\alpha}_{n\downarrow}(\bm{R})\right]\\
+    &+ C_{n'n}^{z}(\bm{R}'-\bm{R})\left[\widehat{\alpha}_{n'\uparrow}^{\dagger}(\bm{R}')\widehat{\alpha}_{n\uparrow}(\bm{R}) - \widehat{\alpha}_{n'\downarrow}^{\dagger}(\bm{R}')\widehat{\alpha}_{n\downarrow}(\bm{R})\right]\\
+    &+ C_{n'n}^{-}(\bm{R}'-\bm{R})\widehat{\alpha}_{n'\uparrow}^{\dagger}(\bm{R}')\widehat{\alpha}_{n\downarrow}(\bm{R})\\
+    &+ C_{n'n}^{+}(\bm{R}'-\bm{R})\widehat{\alpha}_{n'\downarrow}^{\dagger}(\bm{R}')\widehat{\alpha}_{n\uparrow}(\bm{R}) + h.c.
+  \end{aligned}
+\end{equation}
+
+
+\subsection{推导前的准备工作}
+\subsubsection{简化记号}
+将式\eqref{eq:T}用简单符号表示,\footnote{对公式记号的简化是非常有必要的, 这使得我们在纸上书写公式时可以将更多的脑力放在符号间的运算, 而非符号正确性的比对上. \textbf{简化符号应该简明扼要地包含该符号所蕴含的所有必要信息}. 而最后在实际成文时, 考虑到科学性和严谨性, 应该再将简化符号扩充为包含足够细节的复杂符号, 这使得我们的文章可以省略大幅描述公式意义的篇幅, 而将重点放在讨论公式背后的物理上来.
+}
+\begin{equation}
+  \label{eq:Tsimple}
+  \begin{aligned}
+    \widehat{T} &= b\left(\widehat{\alpha}_{2\uparrow}^{\dagger}\widehat{\alpha}_{1\uparrow} + \widehat{\alpha}_{2\downarrow}^{\dagger}\widehat{\alpha}_{1\downarrow}\right) + C_{z}\left(\widehat{\alpha}_{2\uparrow}^{\dagger}\widehat{\alpha}_{1\uparrow} - \widehat{\alpha}_{2\downarrow}^{\dagger}\widehat{\alpha}_{1\downarrow}\right) + C_{-}\widehat{\alpha}_{2\uparrow}^{\dagger}\widehat{\alpha}_{1\downarrow} + C_{+}\widehat{\alpha}_{2\downarrow}^{\dagger}\widehat{\alpha}_{1\uparrow} + h.c.\\
+    &= (b+C_z)\widehat{\alpha}_{2\uparrow}^{\dagger}\widehat{\alpha}_{1\uparrow} + (b-C_z)\widehat{\alpha}_{2\downarrow}^{\dagger}\widehat{\alpha}_{1\downarrow} + C_{-}\widehat{\alpha}_{2\uparrow}^{\dagger}\widehat{\alpha}_{1\downarrow} + C_{+}\widehat{\alpha}_{2\downarrow}^{\dagger}\widehat{\alpha}_{1\uparrow} + h.c.
+  \end{aligned}
+\end{equation}
+其中\(h.c.\)代指厄米共轭项(dagger,\(\dagger\)), 即将前四项的厄米共轭后完整地加在后面. 进而算符\(\widehat{T}\)中含有八项跃迁. 不难发现, \(\widehat{T}\)中的前四项代表1格点到2格点的电子跃迁, 后四项则是格点2到格点1的电子跃迁. 因此\(\widehat{T}\)算符本身包含了1,2格点间所有的跃迁可能. 即, 
+\begin{equation}
+  \label{eq:tdagger}
+  \widehat{T} = \widehat{t}_{1\to{}2} + \widehat{t}_{1\to{}2}^\dagger = \widehat{t}_{1\to{}2} + \widehat{t}_{2\to{}1}
+\end{equation}
+其中\(\widehat{t}_{1\to{}2}\)代表1格点到2格点的四项跃迁, 且我们定义\(\widehat{t}_{2\to{}1} = \widehat{t}_{1\to{}2}^\dagger\).\footnote{注意, 该处我们还并未对相关的系数做细致考察, 只是声明如果单单从产生湮灭算符角度看, \(\widehat{t}_{1\to{}2}^\dagger\)应该代表的是2格点到1格点的跃迁} 将系统全部正反跃迁的可能通路加全, 这保证了哈密顿量的厄米性, 进而保证了粒子数守恒, 使得该系统有稳定的束缚态.
+
+接下来, 我们使用符号\(t\)来简单表示\(\widehat{t}_{1\to{}2}\). 式\eqref{eq:HM}可化简为, 
+\begin{equation}
+  \begin{aligned}
+    \widehat{H}_{\text{M}} &= -\frac{1}{U} \widehat{T}^\dagger\widehat{T}\\
+    &= -\frac{1}{U} (t + t^{\dagger})^\dagger(t + t^{\dagger})\\
+    &= -\frac{1}{U}(t^{\dagger} + t)(t + t^{\dagger})\\
+    &= -\frac{1}{U}(t^{\dagger}t + t^{\dagger}t^{\dagger} + tt + tt^{\dagger})
+  \end{aligned}
+\end{equation}
+
+\subsubsection{公式对称性观察}
+容易验证, \(t^{\dagger}t^{\dagger}\) 与 \(tt\)都是0. 因为我们此处只考虑一个电子的厄米系统, 这两项都是粒子数不守恒的. 或更朴素地, 我们关心的任意电子态作用在这两个算符上的结果都是0.
+
+另外, 在式\eqref{eq:tdagger}中我们定义了 \(\widehat{t}_{2\to{}1} = \widehat{t}_{1\to{}2}^\dagger\). 而通过仔细比对就不难发现, \purple{\textbf{算符\(\widehat{t}_{1\to{}2}\) 与 \(\widehat{t}_{2\to{}1}\)的区别仅仅是是1,2指标互换位置}}. 也就是说, 将\(t\)算符的1,2 指标互换, 就可以将其变为\(t^\dagger\)算符.\footnote{这一结论是相当重要的, 在后续的推到中我们会看到, 该结论并没有听起来这么自然和平庸.}
+于是, 
+
+\begin{equation}
+  \begin{aligned}
+  \widehat{H}_{\text{M}} 
+  &= -\frac{1}{U}(t^{\dagger}t + tt^{\dagger})\\
+  &=  -\frac{1}{U} (\widehat{t}_{1\to{}2}^\dagger\widehat{t}_{1\to{}2} + \widehat{t}_{2\to{}1}^\dagger\widehat{t}_{2\to{}1})\\
+  &= -\frac{1}{U}\left[t^\dagger{}t + (1\Leftrightarrow{}2)\right]
+  \end{aligned}
+\end{equation}
+其中\((1\Leftrightarrow{}2)\)代表前项1,2指标互换后的项. 换言之, 如果我们算出了\(t^\dagger{}t\), 只需要将其结果中的1,2指标互换位置, 就可以立刻得到\(\widehat{t}_{2\to{}1}^\dagger\widehat{t}_{2\to{}1}\)的简式, 而该简式将恰好等于\(tt^\dagger\).\footnote{请注意, 此处对最终结果进行的1,2指标互换的操作, 将不再等价于直接对其做厄米共轭. 因为前者, \(t^\dagger{}t\)内部交换指标后等于\(tt^\dagger\); 而后者, \(t^\dagger{}t\)的厄米共轭还是\(t^\dagger{}t\). 而显然\(t\)和\(t^\dagger\)是不对易的.} 
+
+\purple{\textbf{应该特别注意的是, 简化表达的系数\(b, C_z, C_\pm\)是暗含(\(n,\bm{R}\))指标的}}. 当 1,2指标交换后, 这些系数的变化如下,
+\begin{subequations}
+  \begin{align}
+    \purple{b_{nn'}(\bm{R}-\bm{R}')} &{}\hspace*{3pt}\purple{=b^*_{n'n}(\bm{R}'-\bm{R})}\\
+    C^z_{nn'}(\bm{R}-\bm{R}') &= C^{z*}_{n'n}(\bm{R}'-\bm{R})\\
+    C^\pm_{nn'}(\bm{R}-\bm{R}') &= C^{\mp{}*}_{n'n}(\bm{R}'-\bm{R}) \label{eq:bcrelation}
+  \end{align}
+\end{subequations}
+
+若设\(C_{\pm} = C_x \pm iC_y\), 则式\eqref{eq:bcrelation}可化为,
+\begin{subequations}
+\begin{align}
+  C^x_{nn'}(\bm{R}-\bm{R}') &= C^{x*}_{n'n}(\bm{R}'-\bm{R})\\
+  C^y_{nn'}(\bm{R}-\bm{R}') &= C^{y*}_{n'n}(\bm{R}'-\bm{R}) 
+\end{align}
+\end{subequations}
+
+令 \(\bm{C} = (C_x, C_y, C_z)\), 则
+\begin{equation}
+  \purple{\bm{C}_{nn'}(\bm{R}-\bm{R}') = \bm{C}^*_{n'n}(\bm{R}'-\bm{R})}
+\end{equation}
+即经历指标互换后, \(b\)会变为\(b^*\), \(\bm{C}\)会变为\(\bm{C}^*\). 上述性质均由系数的定义直接决定. \footnote{如果您没有发现这一点, 那么当实际上手时, 您可能会非常轻易地宣布前文的描述是错的, 因为``显然''\(C_\pm\)所对应的项在厄米共轭之后不是简单的交换1,2指标就能和原先相等的. 事实上他们``角色互换''了. 但由于\(\bm{C}\)也暗含1,2指标, 最终整个哈密顿量仍是形式不变的. 另外, 如果您认为这段不好理解, 不妨实际上手做一做, 这样可以更好地体会本段含义.} 
+
+于是, 我们只需要求出\(t^\dagger{}t\)的结果, 而后将其结果中的1,2指标互换就可以得到\(tt^\dagger\). 两项相加, 就可以得到\(\widehat{T}^\dagger\widehat{T}\)的完整表达式. 到此为止, 我们将一个含\(8\times{}8=64\)项的表达式, 化为了一个\(4\times{}4=16\)项的化简问题. 在此过程中, 我们实际上是使用了``解的对称性''. 接下来我们会看到, 在剩余的16项中, 通过合理采纳相关对称性, 也可以极大地简化运算, 减少出错.
+
+\subsubsection{算符间的基本关系}
+注意到, 费米子的产生湮灭算符(\(\widehat{\alpha}^\dagger_{i\sigma}, \widehat{\alpha}_{i\sigma}\)),粒子数算符(\(\widehat{n}_{i\sigma}\)),自旋算符(\(\bm{S}_i\))之间有这样几个关系:
+\begin{subequations}
+  \label{eq:confine-1}
+  \begin{align}
+    \widehat{\alpha}_{i\sigma}\widehat{\alpha}_{j\sigma'} + \widehat{\alpha}_{i\sigma}\widehat{\alpha}_{j\sigma'} &= 0\\
+    \widehat{\alpha}^\dagger_{i\sigma}\widehat{\alpha}^\dagger_{j\sigma'} + \widehat{\alpha}^\dagger_{i\sigma}\widehat{\alpha}^\dagger_{j\sigma'} &= 0\\
+    \widehat{\alpha}_{i\sigma}\widehat{\alpha}^\dagger_{j\sigma'} + \widehat{\alpha}^\dagger_{j\sigma'}\widehat{\alpha}_{i\sigma} &= \delta_{ij}\delta_{\sigma\sigma'}\\
+    \widehat{\alpha}^\dagger_{i\sigma}\widehat{\alpha}_{i\sigma} &= \widehat{n}_{i\sigma}\\
+    \widehat{\alpha}^\dagger_{i\uparrow}\widehat{\alpha}_{i\uparrow} + \widehat{\alpha}^\dagger_{i\downarrow}\widehat{\alpha}_{i\downarrow} &= \widehat{n}_{i}\\
+    \frac{1}{2}(\widehat{\alpha}^\dagger_{i\uparrow}\widehat{\alpha}_{i\uparrow} - \widehat{\alpha}^\dagger_{i\downarrow}\widehat{\alpha}_{i\downarrow}) &= \widehat{S}_i^z\\
+    \widehat{\alpha}^\dagger_{i\uparrow}\widehat{\alpha}_{i\downarrow} &= \widehat{S}_i^+\\
+    \widehat{\alpha}^\dagger_{i\downarrow}\widehat{\alpha}_{i\uparrow} &= \widehat{S}_i^-
+  \end{align}
+\end{subequations}
+其中, \(i,j\)表示不同格点(的不同轨道), \(\sigma, \sigma'\)为自旋指标. 自旋升降算符定义为\(\widehat{S}_i^\pm = \widehat{S}_i^x \pm i\widehat{S}_i^y\), 总电子数算符\(\widehat{n}_{i} = \widehat{n}_{i\uparrow} + \widehat{n}_{i\downarrow}\).
+
+同时注意到, 我们考虑的体系是\textbf{处在不同格点处的两个轨道之间的单电子跃迁}, 我们已经将双电子态所对应的高能态空间通过\emph{Downfolding}技术, ``压缩''到了单电子空间中. 这意味着在我们所关心的态中, 每个轨道上有且仅有一个电子. 也即, 对于我们关心的态, 粒子数算符\(\widehat{n}_{i}\) 始终为单位算符, \(\widehat{n}_{i} = 1\). 于是, 我们在推导中额外引入了下面一个约束条件,
+\begin{equation}
+  \label{eq:confine-0.9}
+  \widehat{\alpha}^\dagger_{i\uparrow}\widehat{\alpha}_{i\uparrow} = 1 - \widehat{\alpha}^\dagger_{i\downarrow}\widehat{\alpha}_{i\downarrow}
+\end{equation}
+
+结合式\eqref{eq:confine-1}和式\eqref{eq:confine-0.9}可以立刻推出,
+\begin{subequations}
+  \label{eq:confine-2}
+  \begin{align}
+    \widehat{\alpha}_{i\downarrow}\widehat{\alpha}_{i\downarrow}^\dagger &= \widehat{\alpha}^\dagger_{i\uparrow}\widehat{\alpha}_{i\uparrow} = \widehat{n}_{i\uparrow} = \frac{1}{2} + \widehat{S}_i^z\\
+    \widehat{\alpha}_{i\uparrow}\widehat{\alpha}_{i\uparrow}^\dagger &= \widehat{\alpha}^\dagger_{i\downarrow}\widehat{\alpha}_{i\downarrow} = \widehat{n}_{i\downarrow} = \frac{1}{2} - \widehat{S}_i^z
+  \end{align}
+\end{subequations}
+
+\subsection{公式推导}
+\subsubsection{原项展开}
+为了方便, 我们首先将\(t^{\dagger}\)和\(t\)清晰地写出来, 所有\(\alpha\)上的``hat''都被省略, 以此缩减手写成本. 
+\begin{subequations}
+  \begin{align}
+    t^\dagger &= (b^*+C^*_z)\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow} + (b^*-C^*_z)\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow} + C^*_{-}\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow} + C^*_{+}\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}\\
+    t &= (b+C_z)\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} + (b-C_z)\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow} + C_{-}\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} + C_{+}\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}
+  \end{align}
+\end{subequations}
+
+接下来, 我们需要写出对应的16项分式. 注意\(t^\dagger\)在前, \(t\)在后. \(\alpha\)是算符, 不能轻易调动顺序； \(b, \bm{C}\)是复数, 可以自由换位.\footnote{书写该处时应该特别小心, 因为接下来的复杂运算都是基于该处的, 稳扎稳打, 步步为营. 推公式切忌心浮气躁, 想得到结果又不舍得花费精力和时间.} 令\(\widehat{h}_{\text{M}} = t^\dagger{}t\),
+
+\begin{equation}
+  \begin{aligned}
+    \widehat{h}_{\text{M}} 
+    &= (b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;(b+C_z)&\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ (b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;(b-C_z)&\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ (b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;C_{-}&\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ (b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;C_{+}&\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+    &+ (b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;(b+C_z)&\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ (b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;(b-C_z)&\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ (b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;C_{-}&\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ (b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;C_{+}&\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+    &+ C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;(b+C_z)&\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;(b-C_z)&\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;C_{-}&\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}&\;\;\;\;\;C_{+}&\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+    &+ C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;(b+C_z)&\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;(b-C_z)&\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;C_{-}&\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}&\;\;\;\;\;C_{+}&\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+  \end{aligned}
+\end{equation}
+
+\begin{equation}
+  \label{eq:hM-mid1}
+  \begin{aligned}
+    \widehat{h}_{\text{M}} 
+    &= (b+C_z)(b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ (b-C_z)(b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ C_{-}(b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ C_{+}(b^*+C^*_z)&\alpha_{1\uparrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+    &+ (b+C_z)(b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ (b-C_z)(b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ C_{-}(b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ C_{+}(b^*-C^*_z)&\alpha_{1\downarrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+    &+ (b+C_z)C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ (b-C_z)C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ C_{-}C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ C_{+}C^*_{-}&\alpha_{1\downarrow}^{\dagger}\alpha_{2\uparrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+    &+ (b+C_z)C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\uparrow} \\
+    &+ (b-C_z)C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\downarrow}\\ 
+    &+ C_{-}C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\uparrow}^{\dagger}\alpha_{1\downarrow} \\
+    &+ C_{+}C^*_{+}&\alpha_{1\uparrow}^{\dagger}\alpha_{2\downarrow}\alpha_{2\downarrow}^{\dagger}\alpha_{1\uparrow}\\
+  \end{aligned}
+\end{equation}
+
+
+结合式\eqref{eq:confine-1}和式\eqref{eq:confine-2}, 我们可以继续对式\eqref{eq:hM-mid1}做如下化简\footnote{为了用笔书写时的简单, 我们依然略去hat记号.}, 
+\begin{equation}
+  \label{eq:hM-mid2}
+  \begin{aligned}
+    \widehat{h}_{\text{M}} 
+    &= (|b|^2 + |C_z|^2 + bC_z^* + b^*C_z)&\cdot&\;\;&(& &n_{1\uparrow} n_{2\downarrow}&)\\
+    &+ (|b|^2 - |C_z|^2 + bC_z^* - b^*C_z)&\cdot&\;\;&(&-&S_1^+ S_2^-&)\\ 
+    &+ (b^*C_{-}+C^*_zC_{-})              &\cdot&\;\;&(& &S_1^+ n_{2\downarrow}&)\\
+    &+ (b^*C_{+}+C^*_zC_{+})              &\cdot&\;\;&(&-&n_{1\uparrow} S_2^-&)\\
+    &+ (|b|^2 - |C_z|^2 - bC_z^* + b^*C_z)&\cdot&\;\;&(&-&S_1^- S_2^+&)\\
+    &+ (|b|^2 + |C_z|^2 - bC_z^* - b^*C_z)&\cdot&\;\;&(& &n_{1\downarrow} n_{2\uparrow}&)\\ 
+    &+ (b^*C_{-}-C^*_zC_{-})              &\cdot&\;\;&(&-&n_{1\downarrow} S_2^+&)\\
+    &+ (b^*C_{+}-C^*_zC_{+})              &\cdot&\;\;&(& &S_1^- n_{2\uparrow}&)\\
+    &+ (bC^*_{-}+C_zC^*_{-})              &\cdot&\;\;&(& &S_1^- n_{2\downarrow}&)\\
+    &+ (bC^*_{-}-C_zC^*_{-})              &\cdot&\;\;&(&-&n_{1\downarrow} S_2^-&)\\ 
+    &+ C_{-}C^*_{-}                       &\cdot&\;\;&(& &n_{1\downarrow} n_{2\downarrow}&)\\
+    &+ C_{+}C^*_{-}                       &\cdot&\;\;&(&-&S_1^- S_2^-&)\\
+    &+ (bC^*_{+}+C_zC^*_{+})              &\cdot&\;\;&(&-&n_{1\uparrow}S_2^+&)\\
+    &+ (bC^*_{+}-C_zC^*_{+})              &\cdot&\;\;&(& &S_1^+ n_{2\uparrow}&)\\ 
+    &+ C_{-}C^*_{+}                       &\cdot&\;\;&(&-&S_1^+ S_2^+&)\\
+    &+ C_{+}C^*_{+}                       &\cdot&\;\;&(& &n_{1\uparrow} n_{2\uparrow}&)\\
+  \end{aligned}
+\end{equation}
+
+\subsubsection{展开结果分类}
+通过一些其他的途径, 我们已经知晓, 各向同性的交换是\(|b|^2\)的效果, DM相互作用是\(|b||\bm{C}|\)的效果, 对称的各向异性交换相互作用是\(|\bm{C}|^2\)的效果. 于是, 我们可以对式\eqref{eq:hM-mid2}中的各项按所含\(b, \bm{C}\)参数做如下分类. 令\(\widehat{h}_{\text{M}} = \widehat{h}_{\text{M}}^{(b2)} + \widehat{h}_{\text{M}}^{(bC)} + \widehat{h}_{\text{M}}^{(C2)}\), 其中,
+
+\begin{equation}\label{eq:1st-term}
+  \widehat{h}_{\text{M}}^{(b2)} = |b|^2(n_{1\uparrow}n_{2\downarrow} + n_{1\downarrow}n_{2\uparrow} - S_1^+S_2^- - S_1^-S_2^+)
+\end{equation}
+
+\begin{equation}\label{eq:2nd-term}
+  \begin{aligned}
+    \widehat{h}_{\text{M}}^{(bC)} 
+    &= bC_z^*(n_{1\uparrow}n_{2\downarrow}-n_{1\downarrow}n_{2\uparrow}+S_1^-S_2^+-S_1^+S_2^-)\\
+    &+ b^*C_z(n_{1\uparrow}n_{2\downarrow}-n_{1\downarrow}n_{2\uparrow}+S_1^+S_2^--S_1^-S_2^+)\\
+    &+bC_-^*(S_1^-n_{2\downarrow} - n_{1\downarrow}S_2^-)\\
+    &+b^*C_-(S_1^+n_{2\downarrow} - n_{1\downarrow}S_2^+)\\
+    &+bC_+^*(S_1^+n_{2\uparrow} - n_{1\uparrow}S_2^+)\\
+    &+b^*C_+(S_1^-n_{2\uparrow} - n_{1\uparrow}S_2^-)
+  \end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:3rd-term}
+  \begin{aligned}
+    \widehat{h}_{\text{M}}^{(C2)} 
+    &= |C_z|^2(n_{1\uparrow}n_{2\downarrow} + n_{1\downarrow}n_{2\uparrow} + S_1^+S_2^- + S_1^-S_2^+) \\
+    &+ |C_-|^2n_{1\downarrow}n_{2\downarrow} + |C_+|^2n_{1\uparrow}n_{2\uparrow}\\
+    &+ C_zC_-^*(S_1^-n_{2\downarrow} + n_{1\downarrow}S_2^-)\\
+    &+ C_z^*C_-(S_1^+n_{2\downarrow} + n_{1\downarrow}S_2^+)\\
+    &+ C_zC_+^*(-S_1^+n_{2\uparrow} - n_{1\uparrow}S_2^+)\\
+    &+ C_z^*C_+(-S_1^-n_{2\uparrow} - n_{1\uparrow}S_2^-)\\
+    &+ C_-C_+^*(-S_1^+S_2^+) + C_-^*C_+(-S_1^-S_2^-)
+  \end{aligned}
+\end{equation}
+
+\subsubsection{各向同性交换相互作用: \(|b|^2\)项}
+将式\eqref{eq:confine-1}和式\eqref{eq:confine-2}中的条件带入式\eqref{eq:1st-term}可得, 
+\begin{equation}
+  \begin{aligned}
+    \purple{\widehat{h}_{\text{M}}^{(b2)}} &= |b|^2[(\frac{1}{2}+S_1^z)(\frac{1}{2}-S_2^z) + (\frac{1}{2}-S_1^z)(\frac{1}{2}+S_2^z) - 2S_1^xS_2^x - 2S_1^zS_2^z]\\
+    &= |b|^2(\frac{1}{2} - 2S_1^zS_2^z- 2S_1^xS_2^x - 2S_1^zS_2^z)\\
+    &{}\hspace*{3pt}\purple{\overset{\text{eff.}}{=} -2|b|^2\bm{S}_1\cdot\bm{S}_2}
+  \end{aligned}
+\end{equation}
+
+\subsubsection{DM交换相互作用: \(|b||\mathbf{C}|\)项}
+其次来看\(|b||\bm{C}|\)项, 
+\begin{equation}\label{eq:bCterm}
+  \begin{aligned}
+    \widehat{h}_{\text{M}}^{(bC)} 
+    &= bC_z^*(n_{1\uparrow}n_{2\downarrow}-n_{1\downarrow}n_{2\uparrow}+S_1^-S_2^+-S_1^+S_2^-) + h.c.\\
+    &+bC_-^*(S_1^-n_{2\downarrow} - n_{1\downarrow}S_2^-) + h.c.\\
+    &+bC_+^*(S_1^+n_{2\uparrow} - n_{1\uparrow}S_2^+) + h.c.
+  \end{aligned}
+\end{equation}
+
+其中, 式\eqref{eq:bCterm}的第一二项,
+\begin{equation}
+  \begin{aligned}
+    &bC_z^*(n_{1\uparrow}n_{2\downarrow}-n_{1\downarrow}n_{2\uparrow}+S_1^-S_2^+-S_1^+S_2^-) + h.c.\\
+    &= bC_z^*[(\frac{1}{2}+S_1^z)(\frac{1}{2}-S_2^z)-(\frac{1}{2}-S_1^z)(\frac{1}{2}+S_2^z)\\
+    &\hspace*{3em}+(S_1^x-iS_1^y)(S_2^x+iS_2^y)-(S_1^x+iS_1^y)(S_2^x-iS_2^y)] + h.c.\\
+    &= bC_z^*[(S_1^z - S_2^z) + 2i(S_1^xS_2^y - S_1^yS_2^x)] + h.c.\\
+    &= (bC_z^*+b^*C_z)(S_1^z - S_2^z) +2i(bC_z^*-b^*C_z)(S_1^xS_2^y - S_1^yS_2^x)
+  \end{aligned}
+\end{equation}
+
+式\eqref{eq:bCterm}的第三到六项,
+\begin{equation}
+  \begin{aligned}
+    &bC_-^*(S_1^-n_{2\downarrow} - n_{1\downarrow}S_2^-) + bC_+^*(S_1^+n_{2\uparrow} - n_{1\uparrow}S_2^+) + h.c.\\
+    &= b(C_x^*+iC_y^*)[(S_1^x - iS_1^y)(\frac{1}{2} - S_2^z) - (\frac{1}{2} - S_1^z)(S_2^x - iS_2^y)] + h.c.\\
+    &+ b(C_x^*-iC_y^*)[(S_1^x + iS_1^y)(\frac{1}{2} + S_2^z) - (\frac{1}{2} + S_1^z)(S_2^x + iS_2^y)] + h.c.\\
+    &= b(C_x^*+iC_y^*)(\frac{1}{2}S_1^x - \frac{i}{2}S_1^y - S_2^zS_1^x + iS_2^zS_1^y -\frac{1}{2}S_2^x + \frac{i}{2}S_2^y + S_1^zS_2^x - iS_1^zS_2^y) + h.c.\\
+    &+ b(C_x^*-iC_y^*)(\frac{1}{2}S_1^x + \frac{i}{2}S_1^y + S_2^zS_1^x + iS_2^zS_1^y -\frac{1}{2}S_2^x - \frac{i}{2}S_2^y - S_1^zS_2^x - iS_1^zS_2^y) + h.c.\\
+    &= bC_x^*[(S_1^x - S_2^x) + 2i(S_2^zS_1^y - S_1^zS_2^y)] + ibC_y^*[-i(S_1^y-S_2^y) -2S_2^zS_1^x + 2S_1^zS_2^x] + h.c.\\
+    &= bC_x^*[(S_1^x - S_2^x) + 2i(S_1^yS_2^z - S_1^zS_2^y)] + bC_y^*[(S_1^y-S_2^y) + 2i(S_1^zS_2^x - S_2^zS_1^x)] + h.c.\\
+    &= (bC_x^* + b^*C_x)(S_1^x - S_2^x) + 2i(bC_x^* - b^*C_x)(S_1^yS_2^z - S_1^zS_2^y)\\
+    &+ (bC_y^* + b^*C_y)(S_1^y - S_2^y) + 2i(bC_y^* - b^*C_y)(S_1^zS_2^x - S_2^zS_1^x)
+  \end{aligned}
+\end{equation}
+
+于是, \(|b||\bm{C}|\)项最终可化简为,
+\begin{equation}
+  \begin{aligned}
+    \purple{\widehat{h}_{\text{M}}^{(bC)}} 
+    &= (bC_z^* + b^*C_z)(S_1^z - S_2^z) + 2i(bC_z^*-b^*C_z)(S_1^xS_2^y - S_1^yS_2^x)\\
+    &+ (bC_x^* + b^*C_x)(S_1^x - S_2^x) + 2i(bC_x^* - b^*C_x)(S_1^yS_2^z - S_1^zS_2^y)\\
+    &+ (bC_y^* + b^*C_y)(S_1^y - S_2^y) + 2i(bC_y^* - b^*C_y)(S_1^zS_2^x - S_2^zS_1^x)\\
+    &\hspace*{3pt}\purple{= (b\bm{C}^*+b^*\bm{C})(\bm{S}_1 - \bm{S}_2) + 2i(b\bm{C}^*-b^*\bm{C})\cdot(\bm{S}_1\times\bm{S}_2)}
+  \end{aligned}
+\end{equation}
+
+\subsubsection{对称各向异性交换相互作用: \(|\mathbf{C}|^2\)项}
+最后看\(|\bm{C}|^2\)项, 
+\begin{equation}\label{eq:C2term}
+  \begin{aligned}
+    \widehat{h}_{\text{M}}^{(C2)} 
+    &= |C_z|^2(n_{1\uparrow}n_{2\downarrow} + n_{1\downarrow}n_{2\uparrow} + S_1^+S_2^- + S_1^-S_2^+) \\
+    &+ C_-C_-^*n_{1\downarrow}n_{2\downarrow} + C_+C_+^*n_{1\uparrow}n_{2\uparrow}\\
+    &+ C_zC_-^*(+S_1^-n_{2\downarrow} + n_{1\downarrow}S_2^-) + h.c.\\
+    &+ C_zC_+^*(-S_1^+n_{2\uparrow} - n_{1\uparrow}S_2^+) + h.c.\\
+    &+ C_-C_+^*(-S_1^+S_2^+) + h.c.
+  \end{aligned}
+\end{equation}
+
+式\eqref{eq:C2term}的第一项,
+\begin{equation}
+  \begin{aligned}
+    &|C_z|^2(n_{1\uparrow}n_{2\downarrow} + n_{1\downarrow}n_{2\uparrow} + S_1^+S_2^- + S_1^-S_2^+)\\
+    &=|C_z|^2(\frac{1}{2} - 2S_1^zS_2^z + 2S_1^xS_2^x + 2S_1^yS_2^y)\\
+    &\overset{\text{eff.}}{=} 2|C_z|^2S_1^xS_2^x + 2|C_z|^2S_1^yS_2^y -2|C_z|^2S_1^zS_2^z
+  \end{aligned}
+\end{equation}
+
+式\eqref{eq:C2term}的第二三项,
+\begin{equation}
+  \begin{aligned}
+    &C_-C_-^*n_{1\downarrow}n_{2\downarrow} + C_+C_+^*n_{1\uparrow}n_{2\uparrow}\\
+    &= (C_x-iC_y)(C_x^*+iC_y^*)(\frac{1}{2} - S_1^z)(\frac{1}{2} - S_2^z)\\
+    &+ (C_x+iC_y)(C_x^*-iC_y^*)(\frac{1}{2} + S_1^z)(\frac{1}{2} + S_2^z)\\
+    &= [(C_xC_x^* + C_yC_y^*) + i(C_xiC_y^* - C_yC_x^*)](\frac{1}{4} - \frac{1}{2}S_1^z - \frac{1}{2}S_2^z + S_1^zS_2^z)\\
+    &+ [(C_xC_x^* + C_yC_y^*) - i(C_xiC_y^* - C_yC_x^*)](\frac{1}{4} + \frac{1}{2}S_1^z + \frac{1}{2}S_2^z + S_1^zS_2^z)\\
+    &= (C_xC_x^* + C_yC_y^*)(\frac{1}{2} + 2S_1^zS_2^z) + i(C_xC_y^* - C_yC_x^*)(-S_1^z - S_2^z)\\
+    &\overset{\text{eff.}}{=}2(|C_x|^2 + |C_y|^2)S_1^zS_2^z - i(C_xC_y^* - C_yC_x^*)(S_1^z + S_2^z)
+  \end{aligned}
+\end{equation}
+
+式\eqref{eq:C2term}的第四到七项,
+\begin{equation}
+  \begin{aligned}
+    &C_zC_-^*(S_1^-n_{2\downarrow} + n_{1\downarrow}S_2^-) + C_zC_+^*(-S_1^+n_{2\uparrow} - n_{1\uparrow}S_2^+) + h.c.\\
+    &= C_z(C_x^*+iC_y^*)[+(S_1^x - iS_1^y)(\frac{1}{2} - S_2^z) + (\frac{1}{2} - S_1^z)(S_2^x - iS_2^y)] + h.c.\\
+    &+ C_z(C_x^*-iC_y^*)[-(S_1^x + iS_1^y)(\frac{1}{2} + S_2^z) - (\frac{1}{2} + S_1^z)(S_2^x + iS_2^y)] + h.c.\\
+    &= C_z(C_x^*+iC_y^*)(+\frac{1}{2}S_1^x - \frac{i}{2}S_1^y - S_1^xS_2^z + iS_1^yS_2^z + \frac{1}{2}S_2^x - \frac{i}{2}S_2^y - S_1^zS_2^x + iS_1^zS_2^y) + h.c.\\
+    &+ C_z(C_x^*-iC_y^*)(-\frac{1}{2}S_1^x - \frac{i}{2}S_1^y - S_1^xS_2^z - iS_1^yS_2^z - \frac{1}{2}S_2^x - \frac{i}{2}S_2^y - S_1^zS_2^x - iS_1^zS_2^y) + h.c.\\
+    &= C_zC_x^*[-iS_1^y -2S_1^xS_2^z -iS_2^y -2S_1^zS_2^x] + iC_zC_y^*[S_1^x + 2iS_1^yS_2^z + S_2^x + 2iS_1^zS_2^y] + h.c.\\
+    &= C_zC_x^*[-i(S_1^y+S_2^y) -2(S_1^xS_2^z + 2S_1^zS_2^x)] + C_zC_y^*[i(S_1^x +  S_2^x) - 2(S_1^yS_2^z + S_1^zS_2^y)] + h.c.\\
+    &= -i(C_zC_x^*-C_z^*C_x)(S_1^y+S_2^y) - 2(C_zC_x^*+C_z^*C_x)(S_1^xS_2^z + S_1^zS_2^x)\\
+    &+ +i(C_zC_y^* - C_z^*C_y)(S_1^x + S_2^x) - 2(C_zC_y^* + C_z^*C_y)(S_1^yS_2^z + S_1^zS_2^y)\\
+    &= -i(C_zC_x^* - C_z^*C_x)(S_1^y + S_2^y) - 2(C_zC_x^* + C_z^*C_x)(S_1^xS_2^z + S_1^zS_2^x)\\
+    &+ -i(C_yC_z^* - C_zC_y^*)(S_1^x + S_2^x) - 2(C_yC_z^* + C_zC_y^*)(S_1^yS_2^z + S_1^zS_2^y)\\
+  \end{aligned}
+\end{equation}
+
+式\eqref{eq:C2term}的第八九项,
+\begin{equation}
+  \begin{aligned}
+    &C_-C_+^*(-S_1^+S_2^+) + h.c.\\
+    &= -(C_x - iC_y)(C_x^* - iC_y^*)(S_1^x + iS_1^y)(S_2^x + iS_2^y) + h.c.\\
+    &= -[(C_xC_x^*-C_yC_y^*)-i(C_yC_x^*+C_xC_y^*)][(S_1^xS_2^x-S_1^yS_2^y) + i(S_1^xS_2^y+S_1^yS_2^x)] + h.c.\\
+    &= -2(C_xC_x^*-C_yC_y^*)(S_1^xS_2^x-S_1^yS_2^y) - 2(C_yC_x^*+C_xC_y^*)(S_1^xS_2^y+S_1^yS_2^x)\\
+    &= -2(|C_x|^2-|C_y|^2)S_1^xS_2^x -2(-|C_x|^2+|C_y|^2)S_1^yS_2^y- 2(C_yC_x^*+C_xC_y^*)(S_1^xS_2^y+S_1^yS_2^x)
+  \end{aligned}
+\end{equation}
+
+因此, \(|\bm{C}|^2\)项化简结果为,
+\begin{equation}
+  \begin{aligned}
+    \purple{\widehat{h}_{\text{M}}^{(C2)}}
+    &= 2|C_z|^2S_1^xS_2^x + 2|C_z|^2S_1^yS_2^y -2|C_z|^2S_1^zS_2^z\\
+    &+ 2(|C_x|^2 + |C_y|^2)S_1^zS_2^z - i(C_xC_y^* - C_yC_x^*)(S_1^z + S_2^z)\\
+    &+ -i(C_zC_x^* - C_z^*C_x)(S_1^y + S_2^y) - 2(C_zC_x^* + C_z^*C_x)(S_1^xS_2^z + S_1^zS_2^x)\\
+    &+ -i(C_yC_z^* - C_zC_y^*)(S_1^x + S_2^x) - 2(C_yC_z^* + C_zC_y^*)(S_1^yS_2^z + S_1^zS_2^y)\\
+    &+ -2(|C_x|^2-|C_y|^2)S_1^xS_2^x -2(-|C_x|^2+|C_y|^2)S_1^yS_2^y- 2(C_yC_x^*+C_xC_y^*)(S_1^xS_2^y+S_1^yS_2^x)\\
+    &= -2(+|C_x|^2-|C_y|^2-C_z|^2)S_1^xS_2^x\\
+    &+ -2(-|C_x|^2+|C_y|^2-|C_z|^2)S_1^yS_2^y\\
+    &+ -2(-|C_x|^2-|C_y|^2+|C_z|^2)S_1^zS_2^z\\
+    &+ -2(C_zC_x^* + C_z^*C_x)(S_1^zS_2^x + S_1^xS_2^z)\\
+    &+ -2(C_yC_z^* + C_zC_y^*)(S_1^yS_2^z + S_1^zS_2^y)\\
+    &+ -2(C_yC_x^* + C_xC_y^*)(S_1^xS_2^y + S_1^yS_2^x)\\
+    &+ -i(C_xC_y^* - C_yC_x^*)(S_1^z + S_2^z)\\
+    &+ -i(C_zC_x^* - C_z^*C_x)(S_1^y + S_2^y)\\
+    &+ -i(C_yC_z^* - C_zC_y^*)(S_1^x + S_2^x)\\
+    &= \begin{pmatrix}
+      S_1^x\\
+      S_1^y\\
+      S_1^z
+    \end{pmatrix}\gamma(S_2^x, S_2^y, S_2^z) -i (\bm{C}\times\bm{C}^*)\cdot(\bm{S}_1+\bm{S}_2)\\
+    &\ \vspace*{3pt}\purple{= \bm{S}_1\cdot\gamma\cdot\bm{S}_2 -i (\bm{C}\times\bm{C}^*)\cdot(\bm{S}_1+\bm{S}_2)}
+  \end{aligned}
+\end{equation}
+
+其中,
+\begin{equation}
+  \gamma = -2(\bm{C}\otimes{}\bm{C}^* + \bm{C}^*\otimes{}\bm{C} - \mathbb{I}\bm{C}\cdot{}\bm{C}^*)
+\end{equation}
+注意到, 
+\begin{equation}
+  \gamma^\dagger = \gamma^* = \gamma
+\end{equation}
+
+\subsubsection{结果合并}
+因此,
+\begin{equation}
+  \begin{aligned}
+    t^\dagger{}t &= \widehat{h}_{\text{M}} = \widehat{h}_{\text{M}}^{(b2)} + \widehat{h}_{\text{M}}^{(bC)} + \widehat{h}_{\text{M}}^{(C2)}\\
+    &= -2|b|^2\bm{S}_1\cdot\bm{S}_2\\
+    &+ (b\bm{C}^*+b^*\bm{C})(\bm{S}_1 - \bm{S}_2) + 2i(b\bm{C}^*+b^*\bm{C})\cdot(\bm{S}_1\times\bm{S}_2)\\
+    &+ \bm{S}_1\cdot\gamma\cdot\bm{S}_2 -i (\bm{C}\times\bm{C}^*)\cdot(\bm{S}_1+\bm{S}_2)
+  \end{aligned}
+\end{equation}
+
+于是, \footnote{\(\bm{S}_2\cdot\gamma^*\cdot\bm{S}_1 = \bm{S}_1\cdot\gamma^\dagger\cdot\bm{S}_2 = \bm{S}_1\cdot\gamma\cdot\bm{S}_2\)}
+\begin{equation}
+  \begin{aligned}
+    \widehat{H}_{\text{M}} &= -\frac{1}{U} \widehat{T}^\dagger\widehat{T}\\
+    &= -\frac{1}{U} (t^\dagger{}t+tt^\dagger)\\
+    &= -\frac{1}{U} [t^\dagger{}t+(1\Leftrightarrow2)]\\
+    &= -\frac{1}{U} [-2|b|^2\bm{S}_1\cdot\bm{S}_2 -2|b|^2\bm{S}_2\cdot\bm{S}_1 \\
+    &\hspace*{38pt}+ (b\bm{C}^*+b^*\bm{C})(\bm{S}_1 - \bm{S}_2) + 2i(b\bm{C}^*-b^*\bm{C})\cdot(\bm{S}_1\times\bm{S}_2)\\
+    &\hspace*{38pt}+ (b^*\bm{C}+b\bm{C}^*)(\bm{S}_2 - \bm{S}_1) + 2i(b^*\bm{C}-b\bm{C}^*)\cdot(\bm{S}_2\times\bm{S}_1)\\
+    &\hspace*{38pt}+ \bm{S}_1\cdot\gamma\cdot\bm{S}_2 -i (\bm{C}\times\bm{C}^*)\cdot(\bm{S}_1+\bm{S}_2)\\
+    &\hspace*{38pt}+ \bm{S}_2\cdot\gamma^*\cdot\bm{S}_1 -i (\bm{C}^*\times\bm{C})\cdot(\bm{S}_2+\bm{S}_1)]\\
+    &= \frac{4|b|^2}{U}\bm{S}_1\cdot\bm{S}_2 + \frac{4i}{U}(b^*\bm{C}-b\bm{C}^*)\cdot(\bm{S}_1\times\bm{S}_2) + \bm{S}_1\cdot\frac{-2\gamma}{U}\cdot\bm{S}_2
+  \end{aligned}
+\end{equation}
+
+\subsection{推导结果}
+于是, 我们最终得到
+\begin{subequations}
+  \begin{align}
+    \purple{\widehat{H}_{\text{M}}} &\ \purple{= J\bm{S}_1\cdot\bm{S}_2 + \bm{D}\cdot(\bm{S}_1\times\bm{S}_2) + \bm{S}_1\cdot\Gamma\cdot\bm{S}_2}\\
+    J &= \frac{4|b|^2}{U}\\
+    \bm{D} &= \frac{4i}{U}(b^*\bm{C}-b\bm{C}^*)\\
+    \Gamma &= \frac{4}{U}(\bm{C}\otimes{}\bm{C}^* + \bm{C}^*\otimes{}\bm{C} - \mathbb{I}\bm{C}\cdot{}\bm{C}^*)
+  \end{align}
+\end{subequations}
+
+其中, \(b\) 为 \(b_{n'n}(\bm{R}'-\bm{R})\)的简化标记, \(\bm{C}\) 为 \(\bm{C}_{n'n}(\bm{R}'-\bm{R})\)的简化标记, \(\bm{S}_1\) 为\(\bm{S}_n(\bm{R})\)的简化标记, \(\bm{S}_2\) 为\(\bm{S}_{n'}(\bm{R}')\)的简化标记. \(\mathbb{I}\)为单位矩阵.
+
+该结果与文献仅在各向同性交换相互作用 \(J\) 上差2倍,\footnote{Moriya, T., Anisotropic superexchange interaction and weak ferromagnetism. \href{https://doi.org/10.1103/PhysRev.120.91}{ Phys. Rev. \textbf{120}, 91.(1960)}} 初步估计该处应是原文有typo.
+\end{document}
+
